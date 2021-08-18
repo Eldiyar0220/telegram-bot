@@ -24,18 +24,18 @@ def start(message):
 def inline(c):
     if c.data == 'Yes':
         chat_id = c.message.chat.id
-        bot.send_message(chat_id, '3 times, Для начала игры пишите /play')
+        bot.send_message(chat_id, 'хорошо у нас будет 3 раунда Для начала игры пишите /play')
     elif c.data == 'No':
         chat_id = c.message.chat.id
-        bot.send_message(chat_id, 'ну ладно! если что я тут и готов победить тебя!!!')
+        bot.send_message(chat_id, 'ну ладно! если что я тут и готов победить тебя!!!!')
 
 @bot.message_handler(commands=['play'])
 def game_start(message):
     # Build keyboard
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
-    btn1 = types.KeyboardButton('Камень')
+    btn1 = types.KeyboardButton('Ножницы')
     btn2 = types.KeyboardButton('Бумага')
-    btn3 = types.KeyboardButton('ножницы')
+    btn3 = types.KeyboardButton('Бумага')
     keyboard.add(btn1, btn2, btn3)
     bot.send_message(message.chat.id, 'Камень, ножницы, бумага, раз, два, три!!! Выберите жест->', reply_markup=keyboard,)
 
@@ -46,13 +46,13 @@ def game(message):
     if message.text == choice:
         bot.send_message(message.chat.id, 'ничья! Для начала новой игры пишите /play')
     else:
-        if message.text == 'Камень':
-            if choice == 'Ножницы':
+        if message.text == 'Ножницы':
+            if choice == 'Бумага':
                 bot.send_message(message.chat.id,'Поздравляю ты победил! У меня была {}. Для начала новой игры пишите /play для выхода из игры /exit'.format(choice))
             else:
                 bot.send_message(message.chat.id,'Извените, но Вы проиграли. У меня был(и/a) {}. Для начала новой игры пишите /play для выхода из игры /exit'.format(choice))
-        elif message.text == 'Ножницы':
-            if choice == 'Бумага':
+        elif message.text == 'Камень':
+            if choice == 'Ножницы':
                 bot.send_message(message.chat.id,'Поздравляю с победой! У меня была {}. Для начала новой игры пишите /play для выхода из игры /exit'.format(choice))
             else:
                 bot.send_message(message.chat.id,'Извените, но Вы проиграли. У меня был(и/a) {}. Для начала новой игры пишите /play для выхода из игры /exit'.format(choice))
@@ -61,6 +61,7 @@ def game(message):
                 bot.send_message(message.chat.id,'Поздравляю с победой! У меня была {}. Для начала новой игры пишите /play для выхода из игры /exit'.format(choice))
             else:
                 bot.send_message(message.chat.id,'Извените, но Вы проиграли. У меня был(и/a) {}. Для начала новой игры пишите /play | для выхода из игры /exit'.format(choice))
+
 
 @bot.message_handler(commands=['/exit'])
 def start(message):
