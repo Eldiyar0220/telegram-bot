@@ -44,7 +44,7 @@ def game_start(message):
 def game(message):
     choice = random.choice(['Камень', 'Ножницы', 'Бумага'])
     if message.text == choice:
-        bot.send_message(message.chat.id, 'ничья! Для начала новой игры пишите /play')
+        bot.send_message(message.chat.id, 'ничья!! Для начала новой игры пишите /play')
     else:
         if message.text == 'Ножницы':
             if choice == 'Бумага':
