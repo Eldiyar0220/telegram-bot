@@ -19,6 +19,11 @@ def start(message):
     chat_id = message.chat.id
     bot.send_message(chat_id, "Привет! меня зовут Эльдияр, сможешь победить меня?! поиграем?", reply_markup=button )
 
+@bot.message_handler(commands=['exit'])
+def start(message):
+    chat_id = message.chat.id
+    bot.send_message(chat_id, "Пока!!")
+
 
 @bot.callback_query_handler(func=lambda c: True)
 def inline(c):
@@ -63,10 +68,5 @@ def game(message):
                 bot.send_message(message.chat.id,'Извените, но Вы проиграли. У меня был(и/a) {}. Для начала новой игры пишите /play | для выхода из игры /exit'.format(choice))
 
 
-@bot.message_handler(commands=['/exit'])
-def start(message):
-    chat_id = message.chat.id
-    bot.send_message(chat_id, "Пока!!")
 
-if __name__ == '__main__':
-    bot.infinity_polling()
+bot.polling()
