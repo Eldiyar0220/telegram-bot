@@ -69,4 +69,6 @@ def game(message):
 
 
 
-bot.polling()
+
+if __name__ == '__main__':
+    bot.infinity_polling()
