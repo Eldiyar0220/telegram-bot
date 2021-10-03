@@ -1,3 +1,0 @@
-key = '1961696461:AAG6yGbqmfTt1vG8-pORJdiwacve4mwGKKQ'
-
-    # '1961696461:AAHlxBKuRvJWPE-eGotv0SdD1pCHNUMkLgo'

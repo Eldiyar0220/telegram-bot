@@ -156,6 +156,7 @@ dmypy.json
 .pytype/
 
 # operating system-related files
+#key "1961696461:AAG6yGbqmfTt1vG8-pORJdiwacve4mwGKKQ"
 # file properties cache/storage on macOS
 *.DS_Store
 # thumbnail cache on Windows
