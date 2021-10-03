@@ -14,7 +14,7 @@ button.add(btn1,btn2)
 round = 3
 count = 0
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start', 'Start'])
 def start(message):
     chat_id = message.chat.id
     bot.send_message(chat_id, "Привет! меня зовут Эльдияр, сможешь победить меня?! поиграем?", reply_markup=button )
@@ -34,12 +34,12 @@ def inline(c):
         chat_id = c.message.chat.id
         bot.send_message(chat_id, 'ну ладно! если что я тут и готов победить тебя!!!!')
 
-@bot.message_handler(commands=['play'])
+@bot.message_handler(commands=['play', 'Play'])
 def game_start(message):
     # Build keyboard
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
     btn1 = types.KeyboardButton('Ножницы')
-    btn2 = types.KeyboardButton('Бумага')
+    btn2 = types.KeyboardButton('Камень')
     btn3 = types.KeyboardButton('Бумага')
     keyboard.add(btn1, btn2, btn3)
     bot.send_message(message.chat.id, 'Камень, ножницы, бумага, раз, два, три!!! Выберите жест->', reply_markup=keyboard,)
